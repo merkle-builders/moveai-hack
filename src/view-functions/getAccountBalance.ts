@@ -1,5 +1,4 @@
-import { surfClient } from "@/utils/surfClient";
-import { COIN_ABI } from "@/utils/coin_abi";
+import { aptosClient } from "@/utils/aptosClient";
 
 export type AccountAPTBalanceArguments = {
   accountAddress: string;
@@ -7,11 +6,12 @@ export type AccountAPTBalanceArguments = {
 
 export const getAccountAPTBalance = async (args: AccountAPTBalanceArguments): Promise<number> => {
   const { accountAddress } = args;
-  const balance = await surfClient()
-    .useABI(COIN_ABI)
-    .view.balance({
-      functionArguments: [accountAddress as `0x${string}`],
+  const balance = await aptosClient().view<[number]>({
+    payload: {
+      function: "0x1::coin::balance",
       typeArguments: ["0x1::aptos_coin::AptosCoin"],
-    });
-  return parseInt(balance[0]);
+      functionArguments: [accountAddress],
+    },
+  });
+  return balance[0];
 };

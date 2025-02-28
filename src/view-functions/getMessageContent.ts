@@ -1,12 +1,12 @@
-import { surfClient } from "@/utils/surfClient";
-import { MESSAGE_BOARD_ABI } from "@/utils/message_board_abi";
+import { MODULE_ADDRESS } from "@/constants";
+import { aptosClient } from "@/utils/aptosClient";
 
 export const getMessageContent = async (): Promise<string> => {
-  const content = await surfClient()
-    .useABI(MESSAGE_BOARD_ABI)
-    .view.get_message_content({
-      functionArguments: [],
-      typeArguments: [],
+  const content = await aptosClient()
+    .view<[string]>({
+      payload: {
+        function: `${MODULE_ADDRESS}::message_board::get_message_content`,
+      },
     })
     .catch((error) => {
       console.error(error);

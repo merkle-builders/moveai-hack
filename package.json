@@ -6,8 +6,8 @@
   "scripts": {
     "move:test": "node ./scripts/move/test",
     "move:compile": "node ./scripts/move/compile",
-    "move:publish": "node ./scripts/move/publish && node ./scripts/move/get_abi",
-    "move:upgrade": "node ./scripts/move/upgrade && node ./scripts/move/get_abi",
+    "move:publish": "node ./scripts/move/publish",
+    "move:upgrade": "node ./scripts/move/upgrade",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -35,8 +35,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7",
-    "@thalalabs/surf": "^1.7.3"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.14.1",

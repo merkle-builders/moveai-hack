@@ -1,19 +1,16 @@
-"use client";
-
 import { useEffect, useState } from "react";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useWalletClient } from "@thalalabs/surf/hooks";
 // Internal components
 import { toast } from "@/components/ui/use-toast";
 import { aptosClient } from "@/utils/aptosClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getMessageContent } from "@/view-functions/getMessageContent";
-import { MESSAGE_BOARD_ABI } from "@/utils/message_board_abi";
+import { writeMessage } from "@/entry-functions/writeMessage";
 
 export function MessageBoard() {
-  const { client } = useWalletClient();
-
+  const { account, signAndSubmitTransaction } = useWallet();
   const queryClient = useQueryClient();
 
   const [messageContent, setMessageContent] = useState<string>();
@@ -43,15 +40,16 @@ export function MessageBoard() {
   });
 
   const onClickButton = async () => {
-    if (!newMessageContent || !client) {
+    if (!account || !newMessageContent) {
       return;
     }
 
     try {
-      const committedTransaction = await client.useABI(MESSAGE_BOARD_ABI).post_message({
-        type_arguments: [],
-        arguments: [newMessageContent],
-      });
+      const committedTransaction = await signAndSubmitTransaction(
+        writeMessage({
+          content: newMessageContent,
+        }),
+      );
       const executedTransaction = await aptosClient().waitForTransaction({
         transactionHash: committedTransaction.hash,
       });
@@ -76,9 +74,10 @@ export function MessageBoard() {
   return (
     <div className="flex flex-col gap-6">
       <h4 className="text-lg font-medium">Message content: {messageContent}</h4>
-      New message <Input disabled={!client} placeholder="yoho" onChange={(e) => setNewMessageContent(e.target.value)} />
+      New message{" "}
+      <Input disabled={!account} placeholder="yoho" onChange={(e) => setNewMessageContent(e.target.value)} />
       <Button
-        disabled={!client || !newMessageContent || newMessageContent.length === 0 || newMessageContent.length > 100}
+        disabled={!account || !newMessageContent || newMessageContent.length === 0 || newMessageContent.length > 100}
         onClick={onClickButton}
       >
         Write
