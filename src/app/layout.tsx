@@ -9,9 +9,9 @@ import { WrongNetworkAlert } from "@/components/WrongNetworkAlert";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  applicationName: "Aptos Boilerplate Template",
-  title: "NextJS Boilerplate Template",
-  description: "Aptos Boilerplate Template",
+  applicationName: "Money Buddy",
+  title: "Money Buddy",
+  description: "Money Buddy AI is your AI buddy on Money chain",
   manifest: "/manifest.json",
 };
 

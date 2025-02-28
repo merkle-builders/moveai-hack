@@ -4,6 +4,11 @@ import { LabelValueGrid, DisplayValue } from "@/components/LabelValueGrid";
 
 export function AccountInfo() {
   const { account } = useWallet();
+  
+  console.log(account);
+  console.log(account?.address);
+  console.log(account?.address?.toString());
+  
   return (
     <div className="flex flex-col gap-6">
       <h4 className="text-lg font-medium">Account Info</h4>
@@ -11,12 +16,15 @@ export function AccountInfo() {
         items={[
           {
             label: "Address",
-            value: <DisplayValue value={account?.address .toStringLong()?? "Not Present"} isCorrect={!!account?.address} />,
+            value: <DisplayValue value={String(account?.address || "Not Present")} isCorrect={!!account?.address} />,
           },
           {
             label: "Public key",
             value: (
-              <DisplayValue value={account?.publicKey.toString() ?? "Not Present"} isCorrect={!!account?.publicKey} />
+              <DisplayValue 
+                value={Array.isArray(account?.publicKey) ? account.publicKey[0] : (account?.publicKey || "Not Present")} 
+                isCorrect={!!account?.publicKey} 
+              />
             ),
           },
           {

@@ -23,8 +23,6 @@ import {
   APTOS_CONNECT_ACCOUNT_URL,
   AboutAptosConnect,
   type AboutAptosConnectEducationScreen,
-  AdapterWallet,
-  AdapterNotDetectedWallet,
   AptosPrivacyPolicy,
   WalletItem,
   groupAndSortWallets,
@@ -33,6 +31,7 @@ import {
   truncateAddress,
   useWallet,
 } from "@aptos-labs/wallet-adapter-react";
+import type { AnyAptosWallet } from "@aptos-labs/wallet-adapter-core";
 import {
   ArrowLeft,
   ArrowRight,
@@ -51,9 +50,9 @@ export function WalletSelector() {
   const closeDialog = useCallback(() => setIsDialogOpen(false), []);
 
   const copyAddress = useCallback(async () => {
-    if (!account?.address.toStringLong()) return;
+    if (!account?.address.toString()) return;
     try {
-      await navigator.clipboard.writeText(account.address.toStringLong());
+      await navigator.clipboard.writeText(account.address.toString());
       toast({
         title: "Success",
         description: "Copied wallet address to clipboard.",
@@ -71,7 +70,7 @@ export function WalletSelector() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button>
-          {account?.ansName || truncateAddress(account?.address.toStringLong()) || "Unknown"}
+          {account?.ansName || truncateAddress(account?.address.toString()) || "Unknown"}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -192,7 +191,7 @@ function ConnectWalletDialog({ close }: ConnectWalletDialogProps) {
 }
 
 interface WalletRowProps {
-  wallet: AdapterWallet | AdapterNotDetectedWallet;
+  wallet: AnyAptosWallet;
   onConnect?: () => void;
 }
 
