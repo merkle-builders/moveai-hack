@@ -58,8 +58,8 @@ export async function POST(req: NextRequest) {
 			return NextResponse.json({ error: 'Private key is required' }, { status: 400 });
 		}
 
-		// Initialize the agent runtime
-		const { agent, tools } = await initializeAgentRuntime(privateKey);
+		// Initialize the agent runtime with tools
+		const { tools } = await initializeAgentRuntime(privateKey);
 
 		// Create memory saver for the agent with a thread_id
 		const memory = new MemorySaver();
