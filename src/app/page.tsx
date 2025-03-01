@@ -55,15 +55,49 @@ function App() {
                   <li>Combine actions like swap+send</li>
                   <li>Track your portfolio</li>
                 </ul>
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Button asChild className="w-full">
                     <Link href="/chat">Chat with Money Buddy</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/autonomous">Autonomous Operations</Link>
                   </Button>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
+        
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <span className="text-xl">🤖</span>
+              <span>Autonomous DeFi</span>
+            </CardTitle>
+            <CardDescription>
+              Set up autonomous DeFi operations powered by AI
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <p>
+                Take your DeFi experience to the next level with autonomous operations:
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Portfolio management with target allocations</li>
+                <li>Automated rebalancing based on your preferences</li>
+                <li>Yield optimization across protocols</li>
+                <li>Trading strategies (DCA, limit orders, stop-loss)</li>
+                <li>Risk management and diversification</li>
+              </ul>
+              <div className="pt-2">
+                <Button asChild className="w-full">
+                  <Link href="/autonomous">Configure Autonomous Operations</Link>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </>
   );

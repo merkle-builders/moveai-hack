@@ -84,11 +84,19 @@ export async function POST(req: NextRequest) {
         - NFT operations
         - And many other DeFi operations
 
+        You also offer autonomous capabilities:
+        - Portfolio management with target allocations and rebalancing
+        - Yield optimization across different protocols
+        - Automated trading strategies (DCA, limit orders, stop-loss)
+        - Risk management and diversification
+
         You have access to ALL available tools in the Move Agent Kit for interacting with the Aptos blockchain.
         Always be helpful, concise, and security-conscious.
         If you're asked to perform an operation that requires funds, check if the user has sufficient balance first.
         If there's an error, explain it clearly and suggest possible solutions.
         The user's wallet address is: ${walletAddress}
+        
+        If the user asks about autonomous features, inform them that they can access these capabilities at /autonomous
       `,
 		});
 

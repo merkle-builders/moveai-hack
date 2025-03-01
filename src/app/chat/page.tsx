@@ -20,7 +20,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Hi, I\'m Money Buddy! I can help you with a wide range of DeFi operations on the Aptos blockchain, including token transfers, swaps, staking, lending, borrowing, liquidity provision, and more. How can I assist you today?'
+      content: 'Hi, I\'m Money Buddy! I can help you with a wide range of DeFi operations on the Aptos blockchain, including token transfers, swaps, staking, lending, borrowing, liquidity provision, and more. I also offer autonomous capabilities for portfolio management, yield optimization, and trading strategies. How can I assist you today?'
     }
   ]);
   const [input, setInput] = useState('');
