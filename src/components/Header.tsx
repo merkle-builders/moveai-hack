@@ -1,13 +1,15 @@
-import { WalletSelector } from "./WalletSelector";
+import { WalletSelector } from '@/components/WalletSelector';
+import Link from 'next/link';
 
 export function Header() {
   return (
-    <div className="flex items-center justify-between px-4 py-2 max-w-screen-xl mx-auto w-full flex-wrap">
-      <h1 className="display">Boilerplate Template</h1>
-
-      <div className="flex gap-2 items-center flex-wrap">
+    <header className="border-b py-4">
+      <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold">
+          Money Buddy
+        </Link>
         <WalletSelector />
       </div>
-    </div>
+    </header>
   );
 }
