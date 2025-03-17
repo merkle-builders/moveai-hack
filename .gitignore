@@ -12,25 +12,64 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-build
-dist-ssr
-*.local
+# Dependencies
+node_modules/
+agent/node_modules
+agent/package-lock.json
+agent/pnpm-lock.yaml
+agent/yarn.lock
 package-lock.json
 pnpm-lock.yaml
-# Editor directories and files
+yarn.lock
+
+# Build outputs
+dist/
+build/
+dist-ssr/
+agent/dist
+agent/dist-ssr
+
+# Environment and local files
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+
+# IDE and editor files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# template related files
+# System files
+.DS_Store
+agent/.DS_Store
+Thumbs.db
+
+# Cache and temporary files
+.cache/
+.temp/
+.next/
+
+# Template related files
 example-collection/
 
-.next
+# TypeScript
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Optional caches
+.eslintcache
+.stylelintcache
+.npm
+
+# Yarn
+.yarn-integrity
