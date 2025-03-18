@@ -1,5 +1,6 @@
 import type { AccountAuthenticator } from "@aptos-labs/ts-sdk"
 
+
 // Twitter tool response types
 export interface TwitterResponse {
 	success: boolean

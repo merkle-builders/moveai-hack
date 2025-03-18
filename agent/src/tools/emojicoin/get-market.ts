@@ -18,7 +18,7 @@ export async function getMarketEmojicoin(agent: AgentRuntime, emojis: SymbolEmoj
 
 		const transaction = await agent.aptos.view({
 			payload: {
-				function: "0xface729284ae5729100b3a9ad7f7cc025ea09739cd6e7252aff0beb53619cafe::emojicoin_dot_fun::market_view",
+				function: "0x1abfa4c5bb5f381b00719fc19e8e655cb2531904bf8f59309efd18eb081373b4::emojicoin_dot_fun::market_view",
 				typeArguments: [`${marketAddress}::coin_factory::Emojicoin`, `${marketAddress}::coin_factory::EmojicoinLP`],
 				functionArguments: [marketAddress],
 			},
