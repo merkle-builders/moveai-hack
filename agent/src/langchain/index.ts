@@ -38,6 +38,13 @@ import {
 } from "./echelon"
 import { EchoStakeTokenTool, EchoUnstakeTokenTool } from "./echo"
 import {
+	EmojicoinGetMarketTool,
+	EmojicoinProvideLiquidityTool,
+	EmojicoinRegisterMarketTool,
+	EmojicoinRemoveLiquidityTool,
+	EmojicoinSwapTool,
+} from "./emojicoin"
+import {
 	MerkleTradeClosePositionTool,
 	MerkleTradeGetPositionTool,
 	MerkleTradePlaceLimitOrderTool,
@@ -130,6 +137,12 @@ export const createAptosTools = (agent: AgentRuntime, config: { filter?: ToolsNa
 		new TwitterRetweetTool(agent),
 		new TwitterSearchTool(agent),
 		new TwitterGetUserTool(agent),
+		// Emojicoin Tools
+		new EmojicoinGetMarketTool(agent),
+		new EmojicoinProvideLiquidityTool(agent),
+		new EmojicoinRegisterMarketTool(agent),
+		new EmojicoinRemoveLiquidityTool(agent),
+		new EmojicoinSwapTool(agent),
 	]
 
 	return config.filter ? tools.filter((tool) => config?.filter?.includes(tool.name as ToolsNameList)) : tools
@@ -147,3 +160,4 @@ export * from "./panora"
 export * from "./openai"
 export * from "./thala"
 export * from "./twitter"
+export * from "./emojicoin"
