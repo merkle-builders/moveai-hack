@@ -66,6 +66,9 @@
     --ring: 240 4.9% 83.9%;
   }
 }
+.your-stars-class {
+  pointer-events: none;
+}
 
 @layer base {
   * {

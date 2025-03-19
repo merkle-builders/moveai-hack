@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-
 import { ReactQueryProvider } from "@/components/ReactQueryProvider";
 import { WalletProvider } from "@/components/WalletProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { WrongNetworkAlert } from "@/components/WrongNetworkAlert";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/star-background";
 
 import "./globals.css";
 
@@ -15,17 +17,19 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
         <WalletProvider>
           <ReactQueryProvider>
-            <div id="root">{children}</div>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+              <StarsBackground />
+              <ShootingStars />
+              <div className="z-1000" id="root">
+                {children}
+              </div>
+            </ThemeProvider>
             <WrongNetworkAlert />
             <Toaster />
           </ReactQueryProvider>
