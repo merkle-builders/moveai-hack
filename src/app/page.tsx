@@ -11,9 +11,12 @@ function App() {
   const { connected } = useWallet();
 
   return (
-    <>
+    <div className="h-screen flex flex-col overflow-hidden">
+      {/* Header remains at the top */}
       <Header />
-      <div className="container mx-auto max-w-4xl p-4 flex justify-center items-center ">
+
+      {/* Content wrapper that takes remaining height and centers the card */}
+      <div className="flex-grow flex items-center justify-center">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -44,7 +47,7 @@ function App() {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 }
 
