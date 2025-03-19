@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
               <StarsBackground />
               <ShootingStars />
-              <div className="z-1000" id="root">
+              <div className="z-10 h-screen" id="root">
                 {children}
               </div>
             </ThemeProvider>

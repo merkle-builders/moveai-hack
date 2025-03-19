@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container mx-auto max-w-4xl p-4">
+      <div className="container mx-auto max-w-4xl p-4 flex justify-center items-center ">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
