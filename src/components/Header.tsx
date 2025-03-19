@@ -1,6 +1,8 @@
 import { WalletSelector } from "@/components/WalletSelector";
 import Link from "next/link";
 import { CircleUserRound } from "lucide-react";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/Hovercard";
+import { AccountInfo } from "@/components/AccountInfo";
 
 export function Header() {
   return (
@@ -13,9 +15,16 @@ export function Header() {
         </div>
         <div className="flex ml-auto gap-9">
           <WalletSelector />
-          <div className="flex mt-1 hover:cursor-pointer hover:bg-blue-100 hover:rounded-xl transition-all items-center justify-center w-8 h-8">
-            <CircleUserRound />
-          </div>
+          <HoverCard>
+            <HoverCardTrigger>
+              <div className="flex mt-1 hover:cursor-pointer hover:bg-blue-100 hover:rounded-xl transition-all items-center justify-center w-8 h-8">
+                <CircleUserRound />
+              </div>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <AccountInfo />
+            </HoverCardContent>
+          </HoverCard>
         </div>
       </div>
     </header>
