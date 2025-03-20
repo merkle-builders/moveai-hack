@@ -29,6 +29,11 @@ export default function ChatPage() {
   const [privateKey, setPrivateKey] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    // Set privateKey from environment variable
+    setPrivateKey(process.env.NEXT_PUBLIC_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY || "");
+  }, []);
+
   // Scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -115,12 +120,7 @@ export default function ChatPage() {
           <div className="flex justify-between items-center mt-4">
             <WalletSelector />
             {connected && (
-              <div className="text-sm text-green-600">
-                Connected:{" "}
-                {account?.address
-                  ? `${account.address.toString().slice(0, 6)}...${account.address.toString().slice(-4)}`
-                  : "Not connected"}
-              </div>
+              <div className="text-sm text-green-600">{account?.address ? "Connected" : "Not connected"}</div>
             )}
           </div>
         </CardHeader>
