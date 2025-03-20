@@ -21,7 +21,7 @@ export default function ChatPage() {
     {
       role: "assistant",
       content:
-        "Hi, I'm Money Buddy! I can help you with a wide range of DeFi operations on the Aptos blockchain, including token transfers, swaps, staking, lending, borrowing, liquidity provision, and more. I also offer autonomous capabilities for portfolio management, yield optimization, and trading strategies. How can I assist you today?",
+        "Hi, I'm Money Buddy! I specialize in helping you create and manage Emojicoins on the Aptos blockchain. I can help you launch your own Emojicoin, manage markets, provide liquidity, and set up AI-powered Twitter promotion for your coin. Want to create your own Emojicoin or need help with social media promotion? Let me know how I can assist you!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -117,8 +117,8 @@ export default function ChatPage() {
             {connected && (
               <div className="text-sm text-green-600">
                 Connected:{" "}
-                {typeof account?.address === "string"
-                  ? `${account.address.slice(0, 6)}...${account.address.slice(-4)}`
+                {account?.address
+                  ? `${account.address.toString().slice(0, 6)}...${account.address.toString().slice(-4)}`
                   : "Not connected"}
               </div>
             )}

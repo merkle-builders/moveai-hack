@@ -3,12 +3,12 @@
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useWallet } from "@aptos-labs/wallet-adapter-react";
-import { AccountInfo } from "@/components/AccountInfo";
+// import { useWallet } from "@aptos-labs/wallet-adapter-react";
+// import { AccountInfo } from "@/components/AccountInfo";
 import Link from "next/link";
 
 function App() {
-  const { connected } = useWallet();
+  // const { connected } = useWallet();
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
@@ -38,9 +38,6 @@ function App() {
               <div className="pt-2 space-y-2">
                 <Button asChild className="w-full">
                   <Link href="/chat">Chat with Money Buddy</Link>
-                </Button>
-                <Button asChild variant="outline" className="w-full">
-                  <Link href="/autonomous">Autonomous Operations</Link>
                 </Button>
               </div>
             </div>
