@@ -20,7 +20,7 @@ const SAMPLE_COINS = [
 
 function App() {
   const [currentCoin, setCurrentCoin] = useState({
-    name: "MONEY BUDDY",
+    name: "MONEY",
     symbol: "💰",
     change: +10.09,
     marketCap: "20,493.64",
